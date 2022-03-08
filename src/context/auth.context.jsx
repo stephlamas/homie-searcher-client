@@ -1,7 +1,8 @@
 import React, { createContext, useState } from "react";
-import { useEffect } from "react";
+
 import authService from "../services/auth.service";
 import profileService from "../services/profile.service";
+import { useEffect } from "react";
 
 const AuthContext = createContext();
 
@@ -23,10 +24,10 @@ function AuthProviderWrapper(props) {
   };
 
   const loadUser = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     profileService.getUserProfile().then((response) => {
       setUser(response.data);
-      setIsLoading(false)
+      setIsLoading(false);
     });
   };
 

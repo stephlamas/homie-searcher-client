@@ -1,13 +1,14 @@
-import { Col, Container, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import homieService from "../../services/homie.service";
-import { useEffect, React, useState } from "react";
-import ContactForm from "../../components/ContactForm/ContactForm";
-import { FaBed, FaBath } from "react-icons/fa";
-import { RiBuilding2Fill } from "react-icons/ri";
-
 import "./LivingPlaceDetailPage.css";
+
+import { Col, Container, Row } from "react-bootstrap";
+import { FaBath, FaBed } from "react-icons/fa";
+import { React, useEffect, useState } from "react";
+
 import Amenities from "../../components/Amenities/Amenities";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import { RiBuilding2Fill } from "react-icons/ri";
+import homieService from "../../services/homie.service";
+import { useParams } from "react-router-dom";
 
 function LivingPlaceDetailPage() {
   const [place, setPlaceDetail] = useState();

@@ -1,32 +1,28 @@
+import { Button, Form } from "react-bootstrap";
+
+import { AuthContext } from "../../context/auth.context";
+import profileService from "../../services/profile.service";
+import uploadService from "../../services/upload.service";
 import { useContext } from "react";
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
-import uploadService from "../../services/upload.service";
-import profileService from "../../services/profile.service";
-import { AuthContext } from "../../context/auth.context";
 
 function ProfileForm() {
   const { user, loadUser } = useContext(AuthContext);
 
   const [updateForm, setUpdateForm] = useState(user);
 
-  const [loadingImage, setLoadingImage] = useState(false);
-
   const uploadProfileImage = (e) => {
-    setLoadingImage(true);
-
     const uploadData = new FormData();
     uploadData.append("images", e.target.files[0]);
 
     uploadService
       .uploadImage(uploadData)
       .then(({ data }) => {
-    console.log(data);
+        console.log(data);
 
-        setLoadingImage(false);
         setUpdateForm({
           ...updateForm,
-          image: data.cloudinaryUrls[0]
+          image: data.cloudinaryUrls[0],
         });
       })
       .catch((err) => console.log(err));

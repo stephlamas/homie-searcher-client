@@ -1,6 +1,8 @@
+import "./PrivacyPage.css";
+
+import { Container, Row } from "react-bootstrap";
+
 import React from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import "./PrivacyPage.css"
 
 function PrivacyPage() {
   return (
@@ -101,7 +103,9 @@ function PrivacyPage() {
               <li>
                 <a href="/privacy">Cookie Policy</a>
               </li>
-              <li><a href="/privacy">Enterprise Customers and Homie for Work</a></li>
+              <li>
+                <a href="/privacy">Enterprise Customers and Homie for Work</a>
+              </li>
             </ul>
           </p>
         </Row>

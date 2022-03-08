@@ -1,122 +1,117 @@
-import { useState } from "react";
-import { Form, Button, Row, Col, Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Button, Col, Form, Row } from "react-bootstrap";
+
 import homieService from "../../services/homie.service";
 import uploadService from "../../services/upload.service";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const NewLivingPlaceForm = () => {
- const [livingPlaceData, setlivingPlaceData] = useState({
-   title: "",
-   category: "",
-   images: [],
-   price: "",
-   description: "",
-   condition: "",
-   m2: "",
-   bedrooms: "",
-   bathrooms: "",
-   elevator: false,
-   heating: false,
-   "reduced mobility": false,
-   parking: false,
-   terrace: false,
-   garden: false,
+  const [livingPlaceData, setlivingPlaceData] = useState({
+    title: "",
+    category: "",
+    images: [],
+    price: "",
+    description: "",
+    condition: "",
+    m2: "",
+    bedrooms: "",
+    bathrooms: "",
+    elevator: false,
+    heating: false,
+    "reduced mobility": false,
+    parking: false,
+    terrace: false,
+    garden: false,
 
-   address: "",
-   city: "",
-   province: "",
-   zipcode: "",
-   country: "",
- });
+    address: "",
+    city: "",
+    province: "",
+    zipcode: "",
+    country: "",
+  });
 
- const [loadingImage, setLoadingImage] = useState(false);
+  const navigate = useNavigate();
 
- const navigate = useNavigate();
+  const handleInputChange = (e) => {
+    const { name, type, value, checked } = e.target;
+    const inputValue = type === "checkbox" ? checked : value;
 
- const handleInputChange = (e) => {
-   const { name, type, value, checked } = e.target;
-   const inputValue = type === "checkbox" ? checked : value;
+    setlivingPlaceData({
+      ...livingPlaceData,
+      [name]: inputValue,
+    });
+  };
 
-   setlivingPlaceData({
-     ...livingPlaceData,
-     [name]: inputValue,
-   });
- };
+  const uploadLivingPlaceImages = (e) => {
+    const uploadData = new FormData();
 
- const uploadLivingPlaceImages = (e) => {
-   setLoadingImage(true);
+    //www.freecodecamp.org/news/formdata-explained/
 
-   const uploadData = new FormData();
+    for (let i = 0; i < e.target.files.length; i++) {
+      uploadData.append("images", e.target.files[i]);
+    }
 
-   //www.freecodecamp.org/news/formdata-explained/
+    uploadService
+      .uploadImage(uploadData)
+      .then(({ data }) => {
+        const newImages = [...livingPlaceData.images, ...data.cloudinaryUrls];
+        setlivingPlaceData({
+          ...livingPlaceData,
+          images: newImages,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
 
-   for (let i = 0; i < e.target.files.length; i++) {
-     uploadData.append("images", e.target.files[i]);
-   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-   uploadService
-     .uploadImage(uploadData)
-     .then(({ data }) => {
-       const newImages = [...livingPlaceData.images, ...data.cloudinaryUrls];
-       setLoadingImage(false);
-       setlivingPlaceData({
-         ...livingPlaceData,
-         images: newImages,
-       });
-     })
-     .catch((err) => console.log(err));
- };
+    homieService
+      .createLivingPlace({
+        title: livingPlaceData.title,
+        category: livingPlaceData.category,
+        images: livingPlaceData.images,
+        price: livingPlaceData.price,
+        description: livingPlaceData.description,
+        condition: livingPlaceData.condition,
+        location: {
+          address: livingPlaceData.address,
+          city: livingPlaceData.city,
+          province: livingPlaceData.province,
+          zipcode: livingPlaceData.zipcode,
+          country: livingPlaceData.country,
+        },
+        features: {
+          m2: livingPlaceData.m2,
+          bedrooms: livingPlaceData.bedrooms,
+          bathrooms: livingPlaceData.bathrooms,
+        },
+        amenities: {
+          elevator: livingPlaceData.elevator,
+          heating: livingPlaceData.heating,
+          "reduced mobility": livingPlaceData["reduced mobility"],
+          parking: livingPlaceData.parking,
+          terrace: livingPlaceData.terrace,
+          garden: livingPlaceData.garden,
+          "swimming pool": livingPlaceData["swimming pool"],
+          "air conditioning": livingPlaceData["air conditioning"],
+          "pets allowed": livingPlaceData["pets allowed"],
+        },
+      })
+      .then(({ data }) => {
+        console.log(data);
+        navigate("/profile/living-places");
+      })
+      .catch((err) => console.log(err));
+  };
 
- const handleSubmit = (e) => {
-   e.preventDefault();
-
-   homieService
-     .createLivingPlace({
-       title: livingPlaceData.title,
-       category: livingPlaceData.category,
-       images: livingPlaceData.images,
-       price: livingPlaceData.price,
-       description: livingPlaceData.description,
-       condition: livingPlaceData.condition,
-       location: {
-         address: livingPlaceData.address,
-         city: livingPlaceData.city,
-         province: livingPlaceData.province,
-         zipcode: livingPlaceData.zipcode,
-         country: livingPlaceData.country,
-       },
-       features: {
-         m2: livingPlaceData.m2,
-         bedrooms: livingPlaceData.bedrooms,
-         bathrooms: livingPlaceData.bathrooms,
-       },
-       amenities: {
-         elevator: livingPlaceData.elevator,
-         heating: livingPlaceData.heating,
-         "reduced mobility": livingPlaceData["reduced mobility"],
-         parking: livingPlaceData.parking,
-         terrace: livingPlaceData.terrace,
-         garden: livingPlaceData.garden,
-         "swimming pool": livingPlaceData["swimming pool"],
-         "air conditioning": livingPlaceData["air conditioning"],
-         "pets allowed": livingPlaceData["pets allowed"],
-       },
-     })
-     .then(({ data }) => {
-       console.log(data);
-       navigate("/profile/living-places");
-     })
-     .catch((err) => console.log(err));
- };
-
- const removeImage = (image) => {
-   const newImages = livingPlaceData.images.filter((item) => item !== image);
-   setlivingPlaceData({
-     ...livingPlaceData,
-     images: newImages,
-   });
- };
-
+  const removeImage = (image) => {
+    const newImages = livingPlaceData.images.filter((item) => item !== image);
+    setlivingPlaceData({
+      ...livingPlaceData,
+      images: newImages,
+    });
+  };
 
   return (
     <Form onSubmit={handleSubmit}>

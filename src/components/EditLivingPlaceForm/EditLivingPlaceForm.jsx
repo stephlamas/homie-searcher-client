@@ -1,10 +1,12 @@
-import { useEffect } from "react";
-import { useState, useContext } from "react";
-import { Form, Button, Row, Col, Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import "./EditLivingPlaceForm.css";
+
+import { Button, Col, Form, Row } from "react-bootstrap";
+
 import homieService from "../../services/homie.service";
 import uploadService from "../../services/upload.service";
-import "./EditLivingPlaceForm.css";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const EditLivingPlaceForm = ({ id }) => {
   const [livingPlaceData, setlivingPlaceData] = useState({
@@ -33,8 +35,6 @@ const EditLivingPlaceForm = ({ id }) => {
     zipcode: "",
     country: "",
   });
-
-  const [loadingImage, setLoadingImage] = useState(false);
 
   useEffect(() => {
     homieService.getOneLivingPlace(id).then((response) => {
@@ -81,8 +81,6 @@ const EditLivingPlaceForm = ({ id }) => {
   };
 
   const uploadLivingPlaceImages = (e) => {
-    setLoadingImage(true);
-
     const uploadData = new FormData();
 
     //www.freecodecamp.org/news/formdata-explained/
@@ -95,7 +93,6 @@ const EditLivingPlaceForm = ({ id }) => {
       .uploadImage(uploadData)
       .then(({ data }) => {
         const newImages = [...livingPlaceData.images, ...data.cloudinaryUrls];
-        setLoadingImage(false);
         setlivingPlaceData({
           ...livingPlaceData,
           images: newImages,
