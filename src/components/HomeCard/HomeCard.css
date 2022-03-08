@@ -1,0 +1,8 @@
+.home-card img {
+    object-fit: cover;
+    max-height: 170px;
+}
+
+.title-home-card{
+    font-size: 16px;
+}

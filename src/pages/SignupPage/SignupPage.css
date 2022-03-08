@@ -1,0 +1,33 @@
+.signup-page img {
+  max-height: calc(100vh - 50px);
+  object-fit: cover;
+  width: 100%;
+}
+
+.signup-page .signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.signup-page .signup-form form {
+  width: 100%;
+}
+
+.signup-page form input {
+  height: 50px;
+}
+
+.signup-page form button {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  height: 50px;
+}
+
+.signup-page .separator {
+  color: #777;
+  font-size: 18px;
+}

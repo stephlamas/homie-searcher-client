@@ -1,0 +1,13 @@
+.edit-preview {
+    position: relative;
+}
+
+.edit-preview button {
+    background-color: var(--bs-white);
+    color: var(--bs-dark);
+    border-radius: 50%;
+    position: absolute;
+    top: -16px;
+    right: 0;
+
+}

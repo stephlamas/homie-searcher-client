@@ -1,0 +1,11 @@
+.email {
+    font-weight: bold;
+    color: rgb(0, 168, 132);
+}
+
+.personalized {
+    font-weight: bold;
+    color: gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
