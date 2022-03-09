@@ -1,6 +1,6 @@
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import React, { useEffect } from "react";
-
+import HomeCard from "../../components/HomeCard/HomeCard";
 import CityCard from "../../components/CityCard/CityCard";
 import Header from "../../components/Header/Header";
 import HomeCard from "../../components/HomeCard/HomeCard";
@@ -24,7 +24,7 @@ const [places, setPlaces] = useState([])
     <>
       <Header />
       <Container>
-        <h2 className="mt-5 mb-3">Explore Destinations</h2>
+        <h3 className="mt-5 mb-3">Explore Destinations</h3>
         <Carousel fade>
           <Carousel.Item>
             <Row>
@@ -65,7 +65,7 @@ const [places, setPlaces] = useState([])
             </Row>
           </Carousel.Item>
         </Carousel>
-        <h2 className="mt-5 mb-3">Travelers’ Choice</h2>
+        <h3 className="mt-5 mb-3">Travelers’ Choice</h3>
         <Row>
           {places.map((place) => {
             return (
