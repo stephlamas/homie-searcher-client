@@ -96,9 +96,6 @@ function LivingPlaceDetailPage() {
 
             <hr />
             <Amenities amenities={place?.amenities} />
-            <span>
-              {place?.amenities.terrace ? <p>Tiene terrace</p> : null}
-            </span>
             <p>{place?.price} €</p>
             <p>{place?.location.address}</p>
             <p>{place?.location.city}</p>

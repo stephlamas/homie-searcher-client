@@ -1,5 +1,6 @@
 import React from "react";
-import { FaGripfire } from "react-icons/fa";
+import { FaGripfire, FaParking } from "react-icons/fa";
+import { GrElevator } from "react-icons/gr";
 import { Col, Row } from "react-bootstrap";
 
 function Amenities({ amenities }) {
@@ -17,10 +18,11 @@ function Amenities({ amenities }) {
               </span>
             )}
           </p>
+
           <p>
-            <FaGripfire size={40} className="text-primary" />
+            <GrElevator size={30} className="text-primary" />
             {amenities?.elevator ? (
-              <span className="fw-bold">Elevator</span>
+              <span className="fw-bold"> Elevator</span>
             ) : (
               <span className="fw-bold text-decoration-line-through">
                 Elevator
@@ -29,25 +31,26 @@ function Amenities({ amenities }) {
           </p>
         </div>
       </Col>
+
       <Col md={6}>
         <div>
           <p>
             <FaGripfire size={40} className="text-primary" />
-            {amenities?.heating ? (
-              <span className="fw-bold">Heating</span>
+            {amenities?.["reduced mobility"] ? (
+              <span className="fw-bold">Reduced mobility</span>
             ) : (
               <span className="fw-bold text-decoration-line-through">
-                Heating
+                Reduced mobility
               </span>
             )}
           </p>
           <p>
-            <FaGripfire size={40} className="text-primary" />
-            {amenities?.elevator ? (
-              <span className="fw-bold">Elevator</span>
+            <FaParking size={30} className="text-primary" />
+            {amenities?.parking ? (
+              <span className="fw-bold">Parking</span>
             ) : (
               <span className="fw-bold text-decoration-line-through">
-                Elevator
+                Parking
               </span>
             )}
           </p>
