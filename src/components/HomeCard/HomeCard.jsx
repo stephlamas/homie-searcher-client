@@ -1,14 +1,19 @@
+import "./HomeCard.css";
+
 import { Card, Carousel } from "react-bootstrap";
 import { React, useState } from "react";
-import "./HomeCard.css";
+
 import { Link } from "react-router-dom";
 
 function HomeCard({ id, price, location, title, images }) {
-  const [index, setIndex] = useState(0);
+
+      
+  const [index, setIndex] = useState();
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
+
 
   return (
     <Link to={`/living-places/${id}`}>

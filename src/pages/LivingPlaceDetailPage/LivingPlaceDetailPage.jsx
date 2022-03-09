@@ -1,6 +1,6 @@
 import "./LivingPlaceDetailPage.css";
 
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { FaBath, FaBed } from "react-icons/fa";
 import {
   GoogleMap,
@@ -12,6 +12,7 @@ import { React, useEffect, useState } from "react";
 
 import Amenities from "../../components/Amenities/Amenities";
 import ContactForm from "../../components/ContactForm/ContactForm";
+import ModalGallery from "../../components/ModalGallery/ModalGallery";
 import { RiBuilding2Fill } from "react-icons/ri";
 import homieService from "../../services/homie.service";
 import { useParams } from "react-router-dom";
@@ -41,15 +42,18 @@ function LivingPlaceDetailPage() {
     <>
       {/* https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c/ */}
       <Container>
-        <Row className="mt-5">
+        <Row className="mt-5 show-button">
           <Col className="gallery">
             {place?.images.slice(0, 4).map((image, index) => {
               return (
-                <figure className={`gallery__item gallery__item--${index}`}>
-                  <img className="gallery__img" src={image} alt="gallery" />
-                </figure>
+                <>
+                  <figure className={`gallery__item gallery__item--${index}`}>
+                    <img className="gallery__img" src={image} alt="gallery" />
+                  </figure>
+                </>
               );
             })}
+            <ModalGallery images={place?.images} />
           </Col>
         </Row>
         <Row>
