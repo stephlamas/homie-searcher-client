@@ -1,10 +1,11 @@
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 import React, { useEffect } from "react";
 import HomeCard from "../../components/HomeCard/HomeCard";
 import CityCard from "../../components/CityCard/CityCard";
 import Header from "../../components/Header/Header";
-import { Carousel, Col, Container, Row } from "react-bootstrap";
-import { useState } from "react";
+import HomeCard from "../../components/HomeCard/HomeCard";
 import homieService from "../../services/homie.service";
+import { useState } from "react";
 
 function HomePage() {
 
@@ -74,7 +75,7 @@ const [places, setPlaces] = useState([])
                   price={place.price}
                   location={place.location}
                   title={place.title}
-                  images={place.images}
+                  images={place.images}  
                 ></HomeCard>
               </Col>
             );
