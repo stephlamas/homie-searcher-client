@@ -2,6 +2,12 @@ import "./LivingPlaceDetailPage.css";
 
 import { Col, Container, Row } from "react-bootstrap";
 import { FaBath, FaBed } from "react-icons/fa";
+import {
+  GoogleMap,
+  Marker,
+  withGoogleMap,
+  withScriptjs,
+} from "react-google-maps";
 import { React, useEffect, useState } from "react";
 
 import Amenities from "../../components/Amenities/Amenities";
@@ -9,6 +15,16 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import { RiBuilding2Fill } from "react-icons/ri";
 import homieService from "../../services/homie.service";
 import { useParams } from "react-router-dom";
+
+const MyMapComponent = withScriptjs(
+  withGoogleMap((props) => (
+    <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
+      {props.isMarkerShown && (
+        <Marker position={{ lat: -34.397, lng: 150.644 }} />
+      )}
+    </GoogleMap>
+  ))
+);
 
 function LivingPlaceDetailPage() {
   const [place, setPlaceDetail] = useState();
@@ -82,6 +98,14 @@ function LivingPlaceDetailPage() {
             <p>{place?.location.province}</p>
             <p>{place?.location.zipcode}</p>
             <p>{place?.location.country}</p>
+
+            <MyMapComponent
+              isMarkerShown
+              googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ height: `400px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+            />
           </Col>
           <Col md={4}>
             <ContactForm owner={place?.owner} id={place?._id} />
