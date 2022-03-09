@@ -106,7 +106,7 @@ function ContactForm({ id, owner }) {
             <div>
               <p className="text-muted">Professional advertiser</p>
               <p>
-                <span className="fs-bold">Phone:</span>
+                <span className="fs-bold">Phone: </span>
                 <span>{owner?.phone}</span>
               </p>
               <p>
