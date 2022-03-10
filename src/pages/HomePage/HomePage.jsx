@@ -1,23 +1,20 @@
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import React, { useEffect } from "react";
-
 import CityCard from "../../components/CityCard/CityCard";
 import Header from "../../components/Header/Header";
 import homieService from "../../services/homie.service";
 import { useState } from "react";
+import HomeCard from "../../components/HomeCard/HomeCard";
 
 function HomePage() {
-
-const [places, setPlaces] = useState([])
+  const [places, setPlaces] = useState([]);
 
   useEffect(() => {
-    const searchParams = new URLSearchParams({ limit: 4})
-    homieService.getAllLivingPlaces(searchParams)
-    .then((response) => {
-      setPlaces(response.data)
-    })
-  }, [])
-
+    const searchParams = new URLSearchParams({ limit: 4 });
+    homieService.getAllLivingPlaces(searchParams).then((response) => {
+      setPlaces(response.data);
+    });
+  }, []);
 
   return (
     <>
@@ -34,16 +31,13 @@ const [places, setPlaces] = useState([])
                 />
               </Col>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/berlin.jpeg" 
-                city="Berlin" />
+                <CityCard imageUrl="./../../images/berlin.jpeg" city="Berlin" />
               </Col>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/sydney.jpeg" 
-                city="Sydney" />
+                <CityCard imageUrl="./../../images/sydney.jpeg" city="Sydney" />
               </Col>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/bcn.jpeg" 
-                city="Barcelona" />
+                <CityCard imageUrl="./../../images/bcn.jpeg" city="Barcelona" />
               </Col>
             </Row>
           </Carousel.Item>
@@ -59,10 +53,7 @@ const [places, setPlaces] = useState([])
                 <CityCard imageUrl="./../../images/rome.jpg" city="Rome" />
               </Col>
               <Col md={3}>
-                <CityCard
-                  imageUrl="./../../images/dubai.jpg"
-                  city="Dubai"
-                />
+                <CityCard imageUrl="./../../images/dubai.jpg" city="Dubai" />
               </Col>
             </Row>
           </Carousel.Item>
@@ -89,4 +80,3 @@ const [places, setPlaces] = useState([])
 }
 
 export default HomePage;
-
