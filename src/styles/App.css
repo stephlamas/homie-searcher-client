@@ -3,11 +3,9 @@ a {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  
+  font-family: "Montserrat", sans-serif !important;
 }
 
 main {
   margin-bottom: 150px;
 }
-
