@@ -6,7 +6,7 @@ function AboutUsPage() {
   return (
     <>
       <Container>
-        <Row>
+        <Row className="d-flex align-items-center mt-5 mb-4">
           <h5 className="privacyPolicy">
             These are the ideas at the core of Homie:
           </h5>

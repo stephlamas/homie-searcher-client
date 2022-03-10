@@ -34,6 +34,7 @@ function ProfileLivingPlaces() {
               {places.map((place) => {
                 return (
                   <Col md={4} className="mb-3">
+                
                     <ProfileLivingPlaceCard place={place} />
                   </Col>
                 );

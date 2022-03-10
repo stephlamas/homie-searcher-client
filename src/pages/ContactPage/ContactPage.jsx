@@ -6,13 +6,13 @@ function ContactPage() {
   return (
     <>
       <Container>
-        <Row>
+        <Row className="d-flex align-items-center mt-5 mb-6">
           <h5>Contact Homie</h5>
           <p>
             Before contacting us, please consult our
             <a href="/contact"> FAQ section</a> (you can save time and money).
           </p>
-          <span className="personalized">Personalized attention:</span>
+          <span className="personalized mb-3">Personalized attention:</span>
           <p>
             {" "}
             Call us at 912333444 Monday to Friday from 9:00 a.m. to 18:00 p.m.

@@ -11,8 +11,6 @@ footer {
   z-index: 999;
 }
 
-
-
 footer ul {
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +23,6 @@ footer ul li {
 }
 
 footer ul li a {
-  /* padding-left: 50px; */
   margin: 20px;
 }
 

@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import HomeCard from "../../components/HomeCard/HomeCard";
 import CityCard from "../../components/CityCard/CityCard";
 import Header from "../../components/Header/Header";
-import HomeCard from "../../components/HomeCard/HomeCard";
 import homieService from "../../services/homie.service";
 import { useState } from "react";
 
@@ -48,18 +47,18 @@ const [places, setPlaces] = useState([])
           <Carousel.Item>
             <Row>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/sydney.jpeg" city="Sydney" />
+                <CityCard imageUrl="./../../images/london.jpg" city="London" />
               </Col>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/bcn.jpeg" city="Barcelona" />
+                <CityCard imageUrl="./../../images/paris.jpg" city="Paris" />
               </Col>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/berlin.jpeg" city="Berlin" />
+                <CityCard imageUrl="./../../images/rome.jpg" city="Rome" />
               </Col>
               <Col md={3}>
                 <CityCard
-                  imageUrl="./../../images/newyork.jpeg"
-                  city="New York"
+                  imageUrl="./../../images/dubai.jpg"
+                  city="Dubai"
                 />
               </Col>
             </Row>
