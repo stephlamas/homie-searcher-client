@@ -1,0 +1,31 @@
+.header {
+  position: relative;
+
+}
+
+.search {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  bottom: 20%;
+
+}
+
+.search .content {
+    width: 50%;
+      background-color: #ffffffbf; 
+
+}
+
+/* 
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+} */

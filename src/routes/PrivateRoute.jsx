@@ -1,12 +1,14 @@
-import { useContext } from "react";
-import { AuthContext } from "../context/auth.context";
 import { Navigate, Outlet } from "react-router-dom";
+
+import { AuthContext } from "../context/auth.context";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
+import { useContext } from "react";
 
 function PrivateRoute() {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <LoadingSpinner />;
   }
 
   if (!isLoading && !isLoggedIn) {

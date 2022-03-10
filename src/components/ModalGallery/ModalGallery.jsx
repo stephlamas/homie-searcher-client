@@ -29,7 +29,7 @@ function ModalGallery({images}) {
         onHide={() => setLgShow(false)}
         aria-labelledby="example-modal-sizes-title-lg"
       >
-        <Modal.Header closeButton></Modal.Header>
+        {/* <Modal.Header closeButton></Modal.Header> */}
         <Modal.Body>
           <Carousel
             interval={null}

@@ -1,8 +1,10 @@
-import { useState, useContext } from "react";
-import { Form, Button, Row, Col, Container, Card } from "react-bootstrap";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
+import { useContext, useState } from "react";
+
+import { MessageContext } from "../../context/userMessage.context";
 // import { useNavigate } from "react-router-dom";
 import homieService from "../../services/homie.service";
-import { MessageContext } from "../../context/userMessage.context";
+
 // import { AuthContext } from "../../context/auth.context";
 
 
@@ -42,8 +44,7 @@ function ContactForm({ id, owner }) {
 
   return (
    <>
-      <Container>
-        <Card className="p-3">
+        <Card className="p-3 mt-5">
           <Card.Header className="bg-primary">
             <p className="text-center text-white fs-2 m-0">Contact</p>
           </Card.Header>
@@ -118,7 +119,6 @@ function ContactForm({ id, owner }) {
             </div>
           </Card.Footer>
         </Card>
-      </Container>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import React, { useEffect } from "react";
-import HomeCard from "../../components/HomeCard/HomeCard";
+
 import CityCard from "../../components/CityCard/CityCard";
 import Header from "../../components/Header/Header";
 import HomeCard from "../../components/HomeCard/HomeCard";
@@ -35,13 +35,16 @@ const [places, setPlaces] = useState([])
                 />
               </Col>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/berlin.jpeg" city="Berlin" />
+                <CityCard imageUrl="./../../images/berlin.jpeg" 
+                city="Berlin" />
               </Col>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/sydney.jpeg" city="Sydney" />
+                <CityCard imageUrl="./../../images/sydney.jpeg" 
+                city="Sydney" />
               </Col>
               <Col md={3}>
-                <CityCard imageUrl="./../../images/bcn.jpeg" city="Barcelona" />
+                <CityCard imageUrl="./../../images/bcn.jpeg" 
+                city="Barcelona" />
               </Col>
             </Row>
           </Carousel.Item>
@@ -75,7 +78,7 @@ const [places, setPlaces] = useState([])
                   price={place.price}
                   location={place.location}
                   title={place.title}
-                  images={place.images}  
+                  images={place.images}
                 ></HomeCard>
               </Col>
             );

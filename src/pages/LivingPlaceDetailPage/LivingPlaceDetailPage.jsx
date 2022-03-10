@@ -1,20 +1,21 @@
 import "./LivingPlaceDetailPage.css";
+
 import { Col, Container, Row } from "react-bootstrap";
 import { FaBath, FaBed, FaMoneyBillWave } from "react-icons/fa";
-import { GrKey, GrContact, GrLocation } from "react-icons/gr";
-import { TiWiFi } from "react-icons/ti"
 import {
   GoogleMap,
   Marker,
   withGoogleMap,
   withScriptjs,
 } from "react-google-maps";
+import { GrContact, GrKey, GrLocation } from "react-icons/gr";
 import { React, useEffect, useState } from "react";
 
 import Amenities from "../../components/Amenities/Amenities";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ModalGallery from "../../components/ModalGallery/ModalGallery";
 import { RiBuilding2Fill } from "react-icons/ri";
+import { TiWiFi } from "react-icons/ti"
 import homieService from "../../services/homie.service";
 import { useParams } from "react-router-dom";
 
@@ -69,13 +70,15 @@ function LivingPlaceDetailPage() {
                   </span>
                   <span className="fw-bold fs-6 text-primary">
                     {place?.owner.firstName} {place?.owner.lastName}
-                  </span>
+                  </span> 
                 </div>
                 <Row className="d-flex align-items-center mt-4 mb-3">
                   <Col md={1}>
                     <FaMoneyBillWave size={30} />
                   </Col>{" "}
-                  <Col md={11} className="fs-4 fw-bold">{place?.price} €/ month</Col>
+                  <Col md={11} className="fs-4 fw-bold">
+                    {place?.price} €/ month
+                  </Col>
                 </Row>
                 <div className="d-flex align-items-center mt-3">
                   <RiBuilding2Fill size={20} />
@@ -171,7 +174,10 @@ function LivingPlaceDetailPage() {
             />
           </Col>
           <Col md={4}>
-            <ContactForm owner={place?.owner} id={place?._id} />
+            <ContactForm
+              owner={place?.owner}
+              id={place?._id}
+            />
           </Col>
         </Row>
       </Container>
