@@ -8,7 +8,7 @@ function PrivacyPage() {
   return (
     <>
       <Container>
-        <Row>
+        <Row className="d-flex align-items-center mt-5 mb-4">
           <span className="legalTerms">Legal terms</span>
           <h4 className="privacyPolicy">Privacy Policy</h4>
           <p className="firstParagraph">
@@ -16,7 +16,7 @@ function PrivacyPage() {
             how we use personal information, how personal information is shared,
             and privacy rights.
           </p>
-          <span className="title-privacy">
+          <span className="title-privacy mb-2">
             North America (excluding Mexico)
           </span>
           <p>
@@ -34,7 +34,7 @@ function PrivacyPage() {
               </li>
             </ul>
           </p>
-          <span className="title-privacy">
+          <span className="title-privacy mb-2">
             Latin America (including Mexico, Central and South America and the
             Caribbean)
           </span>
@@ -57,7 +57,9 @@ function PrivacyPage() {
               </li>
             </ul>
           </p>
-          <span className="title-privacy">Europe, Middle East, and Africa</span>
+          <span className="title-privacy mb-2">
+            Europe, Middle East, and Africa
+          </span>
           <p>
             <ul>
               <li>
@@ -68,7 +70,7 @@ function PrivacyPage() {
               </li>
             </ul>
           </p>
-          <span className="title-privacy">Asia Pacific</span>
+          <span className="title-privacy mb-2">Asia Pacific</span>
           <p>
             <ul>
               <li>
@@ -78,7 +80,7 @@ function PrivacyPage() {
               </li>
             </ul>
           </p>
-          <span className="title-privacy">China</span>
+          <span className="title-privacy mb-2">China</span>
           <p>
             <ul>
               <li>
@@ -89,7 +91,7 @@ function PrivacyPage() {
             privacy policy documents, such as for certain Airbnb services, that
             may be applicable to you.
           </p>
-          <span className="title-privacy">
+          <span className="title-privacy mb-2">
             Supplemental Privacy Policy Documents:
           </span>
           <p>
