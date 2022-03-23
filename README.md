@@ -5,7 +5,7 @@ Homie is an app focused on the search of living places for rent globally.
 You can find the possibility of filtering these places by city, condition, category or bedrooms.
 
 ## 🖥️ technologies
-React, MongoDB, Express and Node. 
+React, MongoDB, Express, Node, Postman.
 Some libraries like Mongoose, Axios, Bootstrap, AntDesign were also used during this process of 2 hard weeks of work at Ironhack Madrid.
 
 ### Screenshots
